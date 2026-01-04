@@ -1,1 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Người Giữ Biên Cương</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(to bottom, #0b1d2d, #000);
+    color: #f5f5f5;
+    overflow-x: hidden;
+}
+
+
+#lock {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, #102a43, #000);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.lock-box {
+    background: rgba(0,0,0,0.7);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0,255,255,0.3);
+}
+
+.lock-box h2 {
+    margin-bottom: 15px;
+}
+
+.lock-box input {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    width: 220px;
+    text-align: center;
+}
+
+.lock-box button {
+    margin-top: 15px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    background: #00b4d8;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+#content {
+    display: none;
+    padding: 40px 20px;
+    text-align: center;
+    animation: fadeIn 2s ease;
+}
+
+h1 {
+    font-size: 36px;
+    color: #ffd166;
+    margin-bottom: 20px;
+}
+
+.poem {
+    max-width: 800px;
+    margin: auto;
+    font-size: 20px;
+    line-height: 1.8;
+    background: rgba(255,255,255,0.05);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(255,215,0,0.2);
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+
+<div id="lock">
+    <div class="lock-box">
+        <h2>🔐 Trang bảo mật</h2>
+        <p>Nhập mật khẩu để vào trang</p>
+        <input type="password" id="password" placeholder="Mật khẩu">
+        <br>
+        <button onclick="unlock()">Vào trang</button>
+        <p id="error" style="color:red;margin-top:10px;"></p>
+    </div>
+</div>
+
+
+<div id="content">
+    <h1>🇻🇳 NGƯỜI GIỮ BIÊN CƯƠNG 🇻🇳</h1>
+
+    <div class="poem">
+        <p>
+        Nơi đầu sóng gió, cuối rừng xa<br>
+        Có bước chân người lính đi qua<br>
+        Vai khoác non sông, tim giữ nước<br>
+        Đêm canh biên giới chẳng rời nhà.<br><br>
+
+        Gió núi thổi mòn màu áo lính<br>
+        Sương rừng ướt lạnh bữa cơm khuya<br>
+        Nhưng mắt vẫn sáng niềm tin Việt<br>
+        Một tấc biên cương – quyết chẳng lìa.<br><br>
+
+        Cột mốc đứng im cùng năm tháng<br>
+        Chứng kiến bao ca gác âm thầm<br>
+        Máu và mồ hôi hòa đất mẹ<br>
+        Giữ yên bờ cõi, vẹn nghĩa ân.<br><br>
+
+        Tổ quốc bình yên từ gian khó<br>
+        Có dáng anh đứng giữa sương mù<br>
+        Biên cương vững chãi – nhờ người lính<br>
+        Tên gọi thiêng liêng: <b>Bộ đội Cụ Hồ</b>.
+        </p>
+    </div>
+
+    <footer>
+        © 2026 – Tôn vinh Bộ đội Biên phòng Việt Nam VNFM
+    </footer>
+</div>
+
+
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const PASSWORD = "bienphong2026";
+
+function unlock() {
+    const input = document.getElementById("password").value;
+    if (input === PASSWORD) {
+        document.getElementById("lock").style.display = "none";
+        document.getElementById("content").style.display = "block";
+        document.getElementById("music").play();
+    } else {
+        document.getElementById("error").innerText = "❌ Sai mật khẩu!";
+    }
+}
+</script>
+
+</body>
+                                  </html>
